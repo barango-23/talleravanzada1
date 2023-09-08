@@ -1,21 +1,18 @@
-// Simulación de datos de alimentos
-const alimentos = [
-    { nombre: "Zanahoria", tipo: "vegetal", energia: 250 },
-    { nombre: "Pescado", tipo: "animal", energia: 300 },
-    // ... Agrega los datos de los otros 298 alimentos aquí ...
-];
+function generarAlimentosAleatorios(cantidad) {
+  const tipos = ["vegetal", "animal"];
+  const alimentosAleatorios = [];
 
-// Función convencional para filtrar alimentos y calcular la sumatoria
-function filtrarYCalcularSumatoria(alimentos) {
-    setTimeout(function() {
-        const alimentosVegetales = alimentos.filter(alimento => alimento.tipo === "vegetal" && alimento.energia > 200);
-        const sumatoriaEnergiaVegetales = alimentosVegetales.reduce((sum, alimento) => sum + alimento.energia, 0);
-        
-        console.log(`Alimentos vegetales con más de 200 unidades de energía:`);
-        console.log(alimentosVegetales);
-        console.log(`Sumatoria de energía de alimentos vegetales: ${sumatoriaEnergiaVegetales}`);
-    }, 5000);
+  for (let i = 0; i < cantidad; i++) {
+    const nombre = `Alimento ${i + 1}`;
+    const tipo = tipos[Math.floor(Math.random() * tipos.length)];
+    const energia = Math.floor(Math.random(), 500); 
+
+    alimentosAleatorios.push({ nombre, tipo, energia });
+  }
+
+  return alimentosAleatorios;
 }
 
-// Ejemplo de uso
-filtrarYCalcularSumatoria(alimentos);
+const alimentosAleatorios = generarAlimentosAleatorios(300); 
+
+filtrarYCalcularSumatoria(alimentosAleatorios);

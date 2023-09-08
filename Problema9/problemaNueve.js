@@ -1,18 +1,23 @@
-// Función convencional para crear un objeto Padawan y clasificar su actividad
-function crearYClasificarPadawan(nombre, planeta, edad, estatura) {
-    const padawan = { nombre, planeta, edad, estatura };
-    clasificarActividad(padawan);
+//declarar la funcion principal//
+function crearPadwan(nombre,edad,planeta,estatura,clasificarPadwan){
+    setTimeout(function(){
+        //Logica de la principal
+        let padwan={ //creaccion de objeto agrupando lo solicitado es decir manera de acumular todo en un bloque
+        nombreEstudiante:nombre,
+        edadEstudiante:edad,
+        planetaEstudiante:planeta,
+        estaturaEstudiante:estatura
+        }
+clasificarPadwan(padwan) //se llama la segunda funcion y en el llamar el objeto que cree
+    },2000)
 }
 
-// Función convencional para clasificar la actividad de un Padawan
-function clasificarActividad(padawan) {
-    if (padawan.edad < 15) {
-        console.log(`${padawan.nombre} del planeta ${padawan.planeta} debe manejar la fuerza.`);
-    } else {
-        console.log(`${padawan.nombre} del planeta ${padawan.planeta} debe manejar el sable de luz.`);
-    }
+//llamar funcion principal
+crearPadwan("crood",200,"yodora",20,function(padwan){ //para llamarlo o usar interpolacion se usa ``//
+if(padwan.edadEstudiante<150){
+    console.log(`${padwan.nombreEstudiante} tiene ${padwan.edadEstudiante} vas a la clase de manejo de la fuerza`)
+}else{
+    console.log(`${padwan.nombreEstudiante} tiene ${padwan.edadEstudiante} vas a la clase de manejo del sable de luz`)
 }
 
-// Ejemplo de uso
-crearYClasificarPadawan("Anakin Skywalker", "Tatooine", 9, 160);
-crearYClasificarPadawan("Ahsoka Tano", "Shili", 17, 175);
+},)
